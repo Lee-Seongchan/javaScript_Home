@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--click : 클릭할 때 일어나는 이벤트-->
+    <button onclick="myFunction2(this)">클릭</button> 
+    <!--html에 요소에서 이벤트가 일어날때 파라미터로 this라는 키워드를 넣어주면 이벤트가
+        일어나는 당사자가 된다.  -->
+
+    <!--change : 값이 바뀔 때 일어나는 이벤트-->
+    <select name="" id="" onchange="myFunction2(this)">
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+        
+    </select>
+
+    <script>
+        //this.키워드 - 사용되는 위치에 따라 this에 바인딩되는 객체가 달라진다.
+        console.log(this); //콘솔 안에서는 this는 widnow
+        
+        function myFunction(){
+            console.log(this); //함수 안에서 this는 window
+        }
+
+        myFunction();
+
+        //this에 DOM(Document Object Model) 요소가 바인딩 된 경우
+        function myFunction2(obj){
+            console.log(obj);
+        }
+    
+        //this Object 객체가 바인딩 된 경우 
+        let person = {
+            firstNmae : "John",
+            lastName : "Dae",
+            getFullName: function(){
+                return this.firstNmae + " " + this.lastName;
+            }
+        }
+
+        const fullName = person.getFullName();
+    </script>
+</body>
+</html>

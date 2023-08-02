@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //fetch API
+        // XMLHttpRequest에서 promise 기능을 내포하고 있다. 
+
+        //데이터 조회
+        function getPostData(){
+            fetch("url").then(function(response){ //서버로부터 받은 response를 파라미터로 받을 수 있다.
+                //console.log(response); //response는 응답받은 데이터를 가지고 있다.
+                return response.json(); //받아온 데이터를 json으로 바꿔옴
+            }).then(function(json){
+                console.log(json);
+            })
+        }
+
+        function getPostData(){
+            fetch("url")
+            .then((response)=> response.json)
+            .then((json)=> console.log(json));
+        }
+
+        getPostData();
+
+        // 데이터를 전송 
+        function postData(){
+            fetch("url", {         //fetch(url, option->오브젝트 형식으로)
+                method : "POST",
+                body : JSON.stringify(data),
+                headers : {
+                    "content-type" : "application/json;charset=UTF-8"
+                }
+            }).then((response) => response.json())
+              .then((json)=>console.log(json));   
+        }
+
+        //데이터 수정
+        function putData(){
+            const data = {title : "Fetch API", author : "Jeermey"}
+            fetch("url", {         //fetch(url, option->오브젝트 형식으로)
+                method : "PUT",
+                body : JSON.stringify(data),
+                headers : {
+                    "content-type" : "application/json;charset=UTF-8"
+                }
+            }).then((response) => response.json())
+              .then((json)=>console.log(json));
+        }
+
+        //데이터 삭제
+        function deleteData(){
+            const data = {title : "Fetch API", author : "Jeermey"}
+            fetch("url", {         //fetch(url, option->오브젝트 형식으로)
+                method : "DELETE"
+            }).then((response) => response.json())
+              .then((json)=>console.log(json));
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button onclick="openNaver();">네이버</button>
+    <script>
+        // window 객체
+        //window.alert("이것은 경고입니다."); -> window 생략가능
+        
+        const pass = prompt("비밀번호를 입력하세요.");//문자를 받을 수 있는 경고창
+        
+        function doDelete(){
+            const pass = prompt("삭제 비밀번호를 입력하세요");
+            if(pass === "1234"){
+                if(confirm("삭제하시겠습니까")){
+                    console.log("삭제 되었습니다.")
+                }
+            }else{
+                alert("비밀번호가 틀립니다.");
+            }
+        }
+    
+        //doDelete()
+
+        function openNaver(){
+            window.open("https://naver.com");
+        }
+
+        //내장함수, 초 
+        const myFunc = setTimeout(function(){
+            console.log("3초 후에 출력됩니다.")
+        },3000);
+
+        const myFunc2 = setInterval(function(){
+            console.log("2초 마다 출력됩니다.")
+        },2000);
+
+        //clearInterval(myFunc); 타임아웃메서드가 실행하지 않고 중지됨
+        //clearInterval(myFunc2);  셋인터벌메서드가 실행되지 않고 중지됨
+
+    </script>
+</body>
+</html>

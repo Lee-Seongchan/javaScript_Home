@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <script>
+          function sum(arr){
+            let total = 0;
+            for(const n of arr){
+                total += n;
+            }
+            return total;
+        }
+
+        console.log(sum([45, 1, 56, 7, 3, 9, 11]));
+
+
+
+        //rest parameter
+        function add(...nums){   //...은 파라미터를 몇개가 들어갈 지 모를때(동일한 형태여야 함) 파라미터 갯수를 자유 자재로 배열 형태로 들어간다.
+            let total = 0;
+            for(const n of nums){
+                total += n;
+            }
+            return total;
+        }
+
+        console.log(add(2, 3));
+        console.log(add(2, 3, 7));
+        console.log(add(2, 3, 7, 8));
+      </script>
+</body>
+</html>
